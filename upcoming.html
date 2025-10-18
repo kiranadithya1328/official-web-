@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upcoming Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #faf5ef;
+            overflow-x: hidden;
+        }
+        /* 🔹 Background video */
+        
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: blur(6px) brightness(75%);
+        }
+        
+        header {
+            background: rgba(193, 157, 112, 0.85);
+            display: flex;
+            align-items: center;
+            padding: 15px 13px;
+            box-shadow: 0 2px 14px rgba(140, 100, 60, .09);
+            flex-wrap: wrap;
+            gap: 12px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            height: 68px;
+            border-radius: 8px;
+            box-shadow: 0 3px 18px rgba(140, 90, 40, .13);
+        }
+        
+        .club-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(237, 219, 194, 0.85);
+            padding: 8px 0;
+            border-bottom: 2px #d2b48c solid;
+            gap: 5px;
+            backdrop-filter: blur(4px);
+        }
+        
+        nav a {
+            color: #553617;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 8px 6px 8px;
+            padding: 9px 16px;
+            border-radius: 9px;
+            transition: background .23s;
+            min-width: 80px;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background: #bf995c;
+            color: #fff;
+        }
+        
+        .section-card {
+            background: rgba(255, 250, 245, 0.9);
+            border-radius: 20px;
+            margin: 32px auto;
+            box-shadow: 0 8px 48px rgba(160, 120, 60, .14);
+            padding: 32px 24px;
+            max-width: 600px;
+            backdrop-filter: blur(8px);
+            text-align: center;
+        }
+        
+        h2 {
+            margin: 12px 0 20px 0;
+            font-size: 2em;
+            text-align: center;
+            color: #553617;
+        }
+        
+        b,
+        strong {
+            color: #a6774d;
+        }
+        
+        img.event-img {
+            width: 90%;
+            max-width: 330px;
+            border-radius: 18px;
+            box-shadow: 0 6px 24px rgba(160, 120, 90, 0.10);
+            margin: 20px 0;
+        }
+        
+        @media (max-width:650px) {
+            .club-title {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 15px;
+                min-width: 45px;
+                padding: 6px 3px;
+            }
+            .section-card {
+                padding: 16px 8px;
+                border-radius: 12px;
+            }
+            header {
+                padding: 13px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔹 Background video -->
+    <video autoplay muted loop playsinline class="background-video">
+    <!-- Replace "background.mp4" with your actual video file -->
+    <source src="dk intro video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+    <header>
+        <img src="club.png" class="logo" alt="DK's Badminton Club Logo">
+        <span class="club-title">DK's Badminton Club</span>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="upcoming.html" class="active">Upcoming</a>
+        <a href="social.html">Social Links</a>
+    </nav>
+
+    <div class="section-card">
+        <h2>Upcoming Tournaments & Coaching Sessions</h2>
+        <p>Stay tuned for exciting matches and tournaments!</p>
+
+        <img src="interclub.jpeg" alt="Interclub Tournament" class="event-img">
+        <p><b>Interclub Tournament</b> — November 10, 2025</p>
+
+        <img src="winter camp.jpeg" alt="Winter Coaching Camp" class="event-img">
+        <p><b>Winter Coaching Camp</b> — December 5–15, 2025</p>
+    </div>
+
+</body>
+
+</html>

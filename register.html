@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Player Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #faf5ef;
+            overflow-x: hidden;
+        }
+        /* 🔹 Background video styling */
+        
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: blur(6px) brightness(70%);
+        }
+        
+        header {
+            background: rgba(193, 157, 112, 0.85);
+            display: flex;
+            align-items: center;
+            padding: 15px 13px;
+            box-shadow: 0 2px 14px rgba(140, 100, 60, .09);
+            flex-wrap: wrap;
+            gap: 12px;
+            backdrop-filter: blur(6px);
+        }
+        
+        .logo {
+            height: 68px;
+            border-radius: 8px;
+            box-shadow: 0 3px 18px rgba(140, 90, 40, .13);
+        }
+        
+        .club-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(237, 219, 194, 0.85);
+            padding: 8px 0;
+            border-bottom: 2px #d2b48c solid;
+            gap: 5px;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a {
+            color: #553617;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 8px 6px 8px;
+            padding: 9px 16px;
+            border-radius: 9px;
+            transition: background .23s;
+            min-width: 80px;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background: #bf995c;
+            color: #fff;
+        }
+        
+        .section-card {
+            background: rgba(255, 250, 245, 0.92);
+            border-radius: 20px;
+            margin: 32px auto;
+            box-shadow: 0 8px 48px rgba(160, 120, 60, .14);
+            padding: 32px 24px;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+        
+        h2 {
+            margin: 12px 0 20px 0;
+            font-size: 2em;
+            color: #553617;
+        }
+        
+        input,
+        select {
+            width: 98%;
+            max-width: 440px;
+            margin: 12px 0;
+            padding: 13px;
+            border: 1.5px solid #c69a6b;
+            border-radius: 8px;
+            font-size: 17px;
+            box-sizing: border-box;
+            background: #f8f4ed;
+        }
+        
+        button {
+            background: linear-gradient(90deg, #c69a6b 30%, #a6774d 100%);
+            color: #fff;
+            padding: 13px 35px;
+            font-size: 19px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 12px;
+            transition: background .21s;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(150, 110, 60, .09);
+            width: 90%;
+            max-width: 300px;
+        }
+        
+        button:hover {
+            background: linear-gradient(90deg, #a6774d 30%, #c69a6b 100%);
+        }
+        
+        @media (max-width:650px) {
+            .club-title {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 15px;
+                min-width: 45px;
+                padding: 6px 3px;
+            }
+            .section-card {
+                padding: 16px 8px;
+                border-radius: 12px;
+            }
+            header {
+                padding: 13px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 🔹 Background video -->
+    <video autoplay muted loop playsinline class="background-video">
+        <!-- Replace this with your own video file -->
+        <source src="dk intro video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <img src="club.png" class="logo" alt="DK's Badminton Club Logo">
+        <span class="club-title">DK's Badminton Club</span>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html" class="active">Register</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="upcoming.html">Upcoming</a>
+        <a href="social.html">Social Links</a>
+    </nav>
+
+    <div class="section-card">
+        <h2>Player Registration</h2>
+        <form id="playerForm">
+            <input name="Name" type="text" placeholder="Full Name" required>
+            <input name="DOB" type="date" required>
+            <input name="Age" type="number" placeholder="Age" required>
+            <select name="Gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <input name="Mobile" type="text" placeholder="Mobile Number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // 🔹 Replace with your actual Google Apps Script Web App URL
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwEHBEkhWpF1cndu7qhODG43u3zoGG2GSgCAspDvhkiswqgH1HnqCh5V_tUXZ6J1qyC/exec";
+
+        const form = document.getElementById('playerForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    alert("✅ Registration successful!");
+                    form.reset();
+                })
+                .catch(error => {
+                    alert("❌ Error! Please try again.");
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+
+</body>
+
+</html>

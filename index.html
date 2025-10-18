@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK's Badminton Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: #faf5ef;
+            color: #553617;
+            overflow-x: hidden;
+        }
+        /* Background Video */
+        
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(90%);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 20, 10, 0.35);
+            z-index: -1;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #c19d70cc 50%, #dcba89cc 100%);
+            display: flex;
+            align-items: center;
+            padding: 15px 13px;
+            gap: 12px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 14px rgba(140, 100, 60, .09);
+            backdrop-filter: blur(6px);
+        }
+        
+        .logo {
+            height: 68px;
+            border-radius: 8px;
+            box-shadow: 0 3px 18px rgba(140, 90, 40, .13);
+        }
+        
+        .club-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(237, 219, 194, .85);
+            padding: 8px 0;
+            border-bottom: 2px #d2b48c solid;
+            gap: 5px;
+            backdrop-filter: blur(6px);
+        }
+        
+        nav a {
+            color: #553617;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 8px 6px 8px;
+            padding: 9px 16px;
+            border-radius: 9px;
+            transition: background .23s;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background: #bf995c;
+            color: #fff;
+        }
+        
+        .section-card {
+            background: rgba(255, 250, 245, 0.92);
+            border-radius: 20px;
+            margin: 80px auto 40px auto;
+            box-shadow: 0 8px 48px rgba(160, 120, 60, .14);
+            padding: 32px 24px;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+        /* === SLIDESHOW === */
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 38px rgba(140, 100, 60, .18);
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        /* Fade animation */
+        
+        .fade {
+            animation: fadeEffect 1.8s ease-in-out;
+        }
+        
+        @keyframes fadeEffect {
+            from {
+                opacity: 0.4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        /* Dots for navigation */
+        
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            background: #c19d70;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 4px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        
+        .active-dot {
+            background: #553617;
+        }
+        
+        @media(max-width:700px) {
+            .club-title {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 15px;
+                padding: 7px 10px;
+            }
+            .slideshow-container {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Working Background Video -->
+    <video class="video-bg" autoplay muted loop playsinline>
+  <source src="dk intro video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+    <div class="overlay"></div>
+
+    <header>
+        <img src="club.png" class="logo" alt="DK's Badminton Club Logo">
+        <span class="club-title">DK's Badminton Club</span>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="register.html">Register</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="upcoming.html">Upcoming</a>
+        <a href="social.html">Social Links</a>
+    </nav>
+
+    <div class="section-card">
+        <h2>Welcome to DK's Badminton Club</h2>
+        <p>Join our badminton community. Play, practice, and compete in style.</p>
+    </div>
+
+    <!-- === SLIDESHOW SECTION === -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="summer camp 2025.jpeg" alt="Summer Camp 2025">
+        </div>
+        <div class="slide fade">
+            <img src="tournament OCT2025.jpeg" alt="Tournament October 2025">
+        </div>
+        <div class="slide fade">
+            <img src="old.jpeg" alt="Old Club Memories">
+        </div>
+        <div class="slide fade">
+            <img src="WhatsApp Image 2025-10-03 at 00.55.54 (4).jpeg" alt="Tournament October 2025">
+        </div>
+        <div class="slide fade">
+            <img src="WhatsApp Image 2025-10-03 at 00.55.54.jpeg" alt="Tournament October 2025">
+        </div>
+        <div class="slide fade">
+            <img src="WhatsApp Image 2025-10-03 at 00.55.54 (3).jpeg" alt="Tournament October 2025">
+        </div>
+        <div class="slide fade">
+            <img src="WhatsApp Image 2025-10-03 at 00.55.54 (2).jpeg" alt="Tournament October 2025">
+        </div>
+        <div class="slide fade">
+            <img src="WhatsApp Image 2025-10-03 at 00.55.54 (5).jpeg" alt="Tournament October 2025">
+        </div>
+
+
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active-dot");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].classList.add("active-dot");
+                setTimeout(showSlides, 3500); // Change image every 3.5 seconds
+            }
+        </script>
+
+</body>
+
+</html>
